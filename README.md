@@ -1,4 +1,4 @@
-beat-crackingcoding
+crackingcoding
 ===================
 
 My Exercise for Cracking Coding Interview
