@@ -57,7 +57,7 @@ public class BinaryTreeTraverse {
     }
 
     /**
-     * this is postOrder traverse using stack (CJ's anser which is alreay written in my note!)
+     * this is postOrder traverse using stack (CJ's answer which is alreay written in my note!)
      * 
      * @param root
      */
