@@ -8,6 +8,7 @@ public class SieveOfEratosthenes {
     /**
      * fetch all primes <= max
      * TODO we could a optimization for space which we only need to consider the odd number in this approach
+     * 
      * @param max
      * @return
      * @throws IOException
@@ -18,10 +19,7 @@ public class SieveOfEratosthenes {
             throw new IOException("minimum prime start from 2!");
         boolean[] flags = new boolean[max + 1]; //NOTE: include max
         Arrays.fill(flags, Boolean.TRUE); //NOTE: one batch way to init a boolean array
-        if (max == 2 || max == 3) { //NOTE one boundary case
-            flags[0] = flags[1] = false;
-            return flags;
-        }
+        flags[0] = flags[1] = false;
         int prime = 2;
         while (prime <= Math.sqrt(max)) {
             crossOffNonPrime(prime, flags);
