@@ -6,7 +6,6 @@ import java.util.Stack;
 import stacks_queues.InterviewQuestions3_7.Dog;
 
 
-
 public class BinaryTree {
     public static class Node {
         Node left;
