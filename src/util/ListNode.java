@@ -8,4 +8,13 @@ public class ListNode {
         val = x;
         next = null;
     }
+
+    public void append(int x) {
+        ListNode end = new ListNode(x);
+        ListNode n = this;
+        while (n.next != null) {
+            n = n.next;
+        }
+        n.next = end;
+    }
 }
