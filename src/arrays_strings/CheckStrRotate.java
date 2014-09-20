@@ -1,3 +1,6 @@
+/**
+ * CTCI 1.8
+ */
 package arrays_strings;
 
 public class CheckStrRotate {

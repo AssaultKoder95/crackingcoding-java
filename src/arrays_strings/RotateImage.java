@@ -1,3 +1,6 @@
+/**
+ * CTCI 1.6
+ */
 package arrays_strings;
 
 public class RotateImage {

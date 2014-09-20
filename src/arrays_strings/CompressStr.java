@@ -1,3 +1,6 @@
+/**
+ * CTCI 1.5
+ */
 package arrays_strings;
 
 public class CompressStr {

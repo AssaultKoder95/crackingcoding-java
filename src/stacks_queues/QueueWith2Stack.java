@@ -1,17 +1,12 @@
+/**
+ * CTCI 3.5
+ */
 package stacks_queues;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Stack;
 
-public class InterviewQuestions3_5 {
+public class QueueWith2Stack {
 
-    /**
-     * key point is whether stack2 need pop to stack1 back each time?
-     * stack1 only contain push elements
-     * each time when stack1.pop-> stack2.push, make a reverse and stack2 contain all elements that FIFO
-     */
     Stack<Integer> stack1 = new Stack<Integer>();
     Stack<Integer> stack2 = new Stack<Integer>();
 
@@ -21,22 +16,23 @@ public class InterviewQuestions3_5 {
 
     public void add(int value) {
         stack1.push(value);
-
     }
 
     public int peek() throws Exception {
-        if (size() == 0)
+        if (size() == 0) {
             throw new Exception("no elements !");
+        }
         if (!stack2.empty()) {
             return stack2.peek();
         } else {
-            while (!stack1.empty())
+            while (!stack1.empty()) {
                 stack2.push(stack1.pop());
+            }
             return stack2.peek();
         }
     }
 
-    public int remove() throws Exception {
+    public int pollFirst() throws Exception {
         if (size() == 0)
             throw new Exception("no elements !");
         if (!stack2.empty()) {
@@ -47,5 +43,5 @@ public class InterviewQuestions3_5 {
             return stack2.pop();
         }
     }
-    
+
 }

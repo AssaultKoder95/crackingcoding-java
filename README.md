@@ -9,3 +9,11 @@ My Exercise for Cracking Coding Interview
 	SetMatrixZeroes
 	CheckStrRotate
 	RmDupFromList
+	PalindromeLinkedList
+	ThreeCircularStack
+	SetStack
+	Hanoi
+	QueueWith2Stack
+	BinaryTreeTraverse
+	PathSum
+	CheckSubTree

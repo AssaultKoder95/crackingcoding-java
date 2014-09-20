@@ -1,7 +1,6 @@
 package stacks_queues;
 
 public class LinkedQueue {
-    //TODO implement a node class
     private class Node {
         public Object Data;
         public Node next = null;

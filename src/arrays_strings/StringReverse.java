@@ -4,10 +4,7 @@ public class StringReverse {
     
     /**
      * reverse a string
-     * @param target
-     * @return
      */
-    
     public static String reverseString(String target) {
         char[] tArray = target.toCharArray();
         char temp;
