@@ -21,6 +21,9 @@ public class FindDupWithBitSet {
         }
     }
     
+    /**
+     * check positive integer array to find duplicates 
+     */
     public static void checkDuplicates(int[] array) {
         BitSet bs = new BitSet(32000);
         for (int i = 0; i < array.length; i++) {

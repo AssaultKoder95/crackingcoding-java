@@ -17,3 +17,13 @@ My Exercise for Cracking Coding Interview
 	BinaryTreeTraverse
 	PathSum
 	CheckSubTree
+	FindDupWithBitSet
+	SetRange
+	NextSmallestAndPrevLargest
+	NumOfBitsAConvertToB
+	MonochromeScreen
+	MutiplyInBitWay
+	Factor357
+	SieveOfEratosthenes
+	MagicNumber
+	Cents
