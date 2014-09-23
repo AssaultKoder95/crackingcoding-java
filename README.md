@@ -27,3 +27,5 @@ My Exercise for Cracking Coding Interview
 	SieveOfEratosthenes
 	MagicNumber
 	Cents
+	RecursiveCache
+	SearchInAscendingRowCol

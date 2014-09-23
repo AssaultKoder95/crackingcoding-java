@@ -1,17 +1,18 @@
+/**
+ * CTCI 11.1
+ */
 package sorting_searching;
 
 public class MergeInSameArray {
-    public static void merge(int[] a, int[] b, int lenA, int lenB){
-        int idxMerged = lenA + lenB - 1, idxA = lenA - 1, idxB = lenB - 1;
-        while(idxB >= 0){
-            if(idxA >= 0 && a[idxA] > b[idxB]){
-                a[idxMerged] = a[idxA];
-                idxA--;
-            }else{
-                a[idxMerged] = b[idxB];
-                idxB--;
-            }
-            idxMerged--;
+    public static void merge(int[] A, int[] B, int aLen, int bLen) {
+        int idx = aLen + bLen - 1, a = aLen - 1, b = bLen - 1;
+        if (A[a] >= B[b]) {
+            A[idx--] = A[a--];
+        } else {
+            A[idx--] = B[b--];
+        }
+        while (b >= 0) {
+            A[idx--] = B[b--];
         }
     }
 }
