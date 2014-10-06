@@ -29,3 +29,4 @@ My Exercise for Cracking Coding Interview
 	Cents
 	RecursiveCache
 	SearchInAscendingRowCol
+	GetRankDynamically

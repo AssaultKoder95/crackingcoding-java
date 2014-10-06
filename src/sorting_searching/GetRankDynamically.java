@@ -1,66 +1,46 @@
+/**
+ * CTCI 11.8
+ */
 package sorting_searching;
 
+import util.RankNode;
+
 public class GetRankDynamically {
+    private RankNode root = null;
 
-    public static class RankNode {
-        public int left_size = 0;
-        public RankNode left;
-        public RankNode right;
-        public int data = 0;
-
-        public RankNode(int data) {
-            this.data = data;
-        }
-
-        public void insert(int target) {
-            if (target <= this.data) {
-                if (this.left != null) {
-                    this.left.insert(target);
-                } else {
-                    this.left = new RankNode(target);
-                }
-                this.left_size++;
-            } else {
-                if (this.right != null) {
-                    this.right.insert(target);
-                } else {
-                    this.right = new RankNode(target);
-                }
-            }
-        }
-
-        public int getRank(int target) {
-            if (target == this.data) {
-                return this.left_size;
-            } else if (target < this.data) {
-                if (this.left == null) {
-                    return -1;
-                } else {
-                    return this.left.getRank(target);
-                }
-            } else {
-                int rightRank = this.right == null ? -1 : this.right.getRank(target);
-                if (rightRank == -1) {
-                    return -1;
-                } else {
-                    return left_size + 1 + rightRank;
-                }
-            }
-        }
-
+    public void track(int number) {
+        root = insert(root, number);
     }
 
-    private static RankNode root = null;
+    public int getRankOfNumber(int number) {
+        return getRank(root, number);
+    }
 
-    public static void track(int number) {
+    private RankNode insert(RankNode root, int val) {
         if (root == null) {
-            root = new RankNode(number);
+            return new RankNode(val);
+        }
+        if (val <= root.val) {
+            root.left = insert(root.left, val);
+            root.leftSize++;
         } else {
-            root.insert(number);
+            root.right = insert(root.right, val);
+        }
+        return root;
+    }
+
+    private int getRank(RankNode root, int val) {
+        if (root == null) {
+            return -1;
+        }
+        if (val == root.val) {
+            return root.leftSize;
+        } else if (val < root.val) {
+            return getRank(root.left, val);
+        } else {
+            int rightRank = getRank(root.right, val);
+            return rightRank == -1 ? -1 : root.leftSize + 1 + rightRank;
         }
     }
 
-    public static int getRankOfNumber(int number) {
-        return root.getRank(number);
-    }
 }

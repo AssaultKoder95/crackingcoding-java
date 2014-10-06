@@ -35,7 +35,9 @@ public class AddLinkedList {
      * get summation of two forward linked list
      */
     public static ListNode sumTwoLinkedListForward(ListNode l1, ListNode l2) {
-        Stack<ListNode> s1 = new Stack<ListNode>(), s2 = new Stack<ListNode>(), ans = new Stack<ListNode>();
+        Stack<ListNode> s1 = new Stack<ListNode>();
+        Stack<ListNode> s2 = new Stack<ListNode>();
+        Stack<ListNode> ans = new Stack<ListNode>();
         ListNode dummy = new ListNode(0), tail = dummy;
         while (l1 != null) {
             s1.push(l1);
