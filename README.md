@@ -1,9 +1,5 @@
 crackingcoding-java
 ===================
-
-My Exercise for Cracking Coding Interview
-
-## This list needs practise again!
 	replaceSpace
 	CompressStr
 	SetMatrixZeroes
@@ -30,3 +26,7 @@ My Exercise for Cracking Coding Interview
 	RecursiveCache
 	SearchInAscendingRowCol
 	GetRankDynamically
+	BSTtoDoubleLinkedList1
+	BSTtoDoubleLinkedList2
+	AddWithNoPlusOperator
+
