@@ -1,3 +1,6 @@
+/**
+ * CTCI 18.5
+ */
 package hard;
 
 public class ShortestDist {
@@ -17,8 +20,5 @@ public class ShortestDist {
             }
         }
         return min;
-    }
-    public static void main(String[] args) {
-        System.out.println(ShortestDist.solution(new String[]{"aa", "bb", "cc", "dd", "aa", "cc"}, "aa",  "cc"));
     }
 }

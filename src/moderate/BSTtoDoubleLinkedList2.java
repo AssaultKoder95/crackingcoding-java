@@ -1,34 +1,28 @@
+/**
+ * CTCI 17.3
+ */
 package moderate;
 
+import util.TreeNode;
+
 public class BSTtoDoubleLinkedList2 {
-    public static class BiNode {
-        public BiNode node1;
-        public BiNode node2;
-        public int data;
 
-        public BiNode(int d) {
-            data = d;
-        }
-    }
-
-    public static BiNode convertToCircular(BiNode root) {
+    public static TreeNode convertToCircular(TreeNode root) {
         if (root == null) {
             return null;
         }
-        if (root.node1 == null && root.node2 == null) {
-            root.node1 = root;
-            root.node2 = root;
+        if (root.left == null && root.right == null) {
+            root.left = root;
+            root.right = root;
             return root;
         }
-        BiNode leftHead = convertToCircular(root.node1);
-        BiNode rightHead = convertToCircular(root.node2);
-
-        BiNode tail = rightHead == null ? null : rightHead.node1;
+        TreeNode leftHead = convertToCircular(root.left);
+        TreeNode rightHead = convertToCircular(root.right);
 
         if (leftHead == null) {
-            concat(rightHead.node1, root);
+            concat(rightHead.left, root);
         } else {
-            concat(leftHead.node1, root);
+            concat(leftHead.left, root);
         }
 
         if (rightHead == null) {
@@ -38,21 +32,21 @@ public class BSTtoDoubleLinkedList2 {
         }
 
         if (leftHead != null && rightHead != null) {
-            concat(tail, leftHead);
+            concat(rightHead.left, leftHead);
         }
 
         return leftHead == null ? root : leftHead;
     }
 
-    public static BiNode convert(BiNode root) {
-        BiNode head = convertToCircular(root);
-        head.node1.node2 = null;
-        head.node1 = null;
+    public static TreeNode convert(TreeNode root) {
+        TreeNode head = convertToCircular(root);
+        head.left.right = null;
+        head.left = null;
         return head;
     }
 
-    public static void concat(BiNode x, BiNode y) {
-        x.node2 = y;
-        y.node1 = x;
+    public static void concat(TreeNode x, TreeNode y) {
+        x.right = y;
+        y.left = x;
     }
 }

@@ -1,3 +1,6 @@
+/**
+ * CTCI 18.1 
+ */
 package hard;
 
 public class AddWithNoPlusOperator {
@@ -8,8 +11,5 @@ public class AddWithNoPlusOperator {
         int sum = a ^ b;
         int carry = (a & b) << 1;
         return solution(sum, carry);
-    }
-    public static void main(String[] args) {
-        System.out.println(AddWithNoPlusOperator.solution(3, 5));
     }
 }

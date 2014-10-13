@@ -1,22 +1,18 @@
+/**
+ * CTCI 17.13
+ */
 package moderate;
 
+import util.TreeNode;
+
 public class BSTtoDoubleLinkedList1 {
-    public static class BiNode {
-        public BiNode node1;
-        public BiNode node2;
-        public int data;
-
-        public BiNode(int d) {
-            data = d;
-        }
-    }
-
-    public static BiNode convert(BiNode root) {
+    //Time complexity: T(n) = 2T(n/2) + n
+    public static TreeNode convert(TreeNode root) {
         if (root == null) {
             return null;
         }
-        BiNode leftHead = convert(root.node1);
-        BiNode rightHead = convert(root.node2);
+        TreeNode leftHead = convert(root.left);
+        TreeNode rightHead = convert(root.right);
         if (leftHead != null) {
             concat(getTail(leftHead), root);
         }
@@ -24,19 +20,17 @@ public class BSTtoDoubleLinkedList1 {
             concat(root, rightHead);
         }
         return leftHead == null ? root : leftHead;
-
     }
 
-    public static BiNode getTail(BiNode node) {
-        while (node.node2 != null) {
-            node = node.node2;
+    public static TreeNode getTail(TreeNode node) {
+        while (node.right != null) {
+            node = node.right;
         }
         return node;
     }
 
-    public static void concat(BiNode x, BiNode y) {
-        x.node2 = y;
-        y.node1 = x;
+    public static void concat(TreeNode x, TreeNode y) {
+        x.right = y;
+        y.left = x;
     }
-
 }

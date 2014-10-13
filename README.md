@@ -29,4 +29,6 @@ crackingcoding-java
 	BSTtoDoubleLinkedList1
 	BSTtoDoubleLinkedList2
 	AddWithNoPlusOperator
+	MaxSquareWithZeroBorder
+	SubMatrixWithMaxSum
 

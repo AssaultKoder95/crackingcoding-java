@@ -1,3 +1,6 @@
+/**
+ * CTCI 17.11
+ */
 package moderate;
 
 public class Rand7UsingRand5 {

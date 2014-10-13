@@ -1,16 +1,20 @@
+/**
+ * CTCI 18.8
+ * see http://hawstein.com/posts/20.8.html
+ */
 package hard;
 
 import java.util.Arrays;
 
-public class SuffixTree {
+public class SuffixTrie {
     private int childNum = 26;
     private int label = 0;
-    private int[][] suffixTree;
+    private int[][] suffixTrie;
 
-    public SuffixTree(String str) {
-        suffixTree = new int[str.length() * str.length()][this.childNum];
-        for (int i = 0; i < suffixTree.length; i++) {
-            Arrays.fill(suffixTree[i], -1);
+    public SuffixTrie(String str) {
+        suffixTrie = new int[str.length() * str.length()][this.childNum];
+        for (int i = 0; i < suffixTrie.length; i++) {
+            Arrays.fill(suffixTrie[i], -1);
         }
         for (int i = 0; i < str.length(); i++) {
             insert(str.substring(i));
@@ -21,10 +25,10 @@ public class SuffixTree {
         int pos = 0;
         for (int i = 0; i < str.length(); i++) {
             int child = str.charAt(i) - 'a';
-            if (suffixTree[pos][child] == -1) {
-                suffixTree[pos][child] = this.label++;
+            if (suffixTrie[pos][child] == -1) {
+                suffixTrie[pos][child] = this.label++;
             }
-            pos = suffixTree[pos][child];
+            pos = suffixTrie[pos][child];
         }
     }
 
@@ -32,16 +36,16 @@ public class SuffixTree {
         int pos = 0;
         for (int i = 0; i < str.length(); i++) {
             int child = str.charAt(i) - 'a';
-            if (suffixTree[pos][child] == -1) {
+            if (suffixTrie[pos][child] == -1) {
                 return false;
             }
-            pos = suffixTree[pos][child];
+            pos = suffixTrie[pos][child];
         }
         return true;
     }
 
     public static void main(String[] args) {
-        SuffixTree tree = new SuffixTree("mississippi");
+        SuffixTrie tree = new SuffixTrie("mississippi");
         String patt[] = new String[] { "is", "sip", "hi", "sis", "mississippa" };
         for (int i = 0; i < patt.length; i++) {
             System.out.println(tree.find(patt[i]));
