@@ -9,19 +9,19 @@ public class MagicNumber {
      * find whether A[i]==i in a sorted array;
      * this solution is fit for the array without duplicates
      */
-    public static boolean findMagicIdxNonDup(int[] array) {
+    public static int findMagicIdxNonDup(int[] array) {
         if (array[array.length - 1] < (array.length - 1))//NOTE
-            return false;
+            return -1;
         return findRecurisve(array, 0, array.length - 1);
     }
 
-    public static boolean findRecurisve(int[] src, int start, int end) {
+    public static int findRecurisve(int[] src, int start, int end) {
         if (start > end) {
-            return false;
+            return -1;
         }
         int mid = (start + end) / 2;
         if (src[mid] == mid) {
-            return true;
+            return mid;
         } else if (src[mid] < mid) {
             return findRecurisve(src, mid + 1, end);
         } else {
@@ -34,24 +34,27 @@ public class MagicNumber {
      * don't use bisection but use the last element value as index to detect
      * the average time is still log(n)
      */
-    public static boolean findMagicIdxDup(int[] array) {
+    public static int findMagicIdxDup(int[] array) {
         return findRecurisveDup(array, 0, array.length - 1);
     }
 
-    public static boolean findRecurisveDup(int[] array, int start, int end) {
+    public static int findRecurisveDup(int[] array, int start, int end) {
         if (start > end) {
-            return false;
+            return -1;
         }
         if (array[end] == end) {
-            return true;
-        } else if (array[end] >= start && array[end] < end && array[array[end]] == array[end]) {
+            return end;
+        }
+        if (array[end] >= start && array[end] < end) {
             if (array[array[end]] == array[end]) {
-                return true;
+                return array[end];
             } else {
                 return findRecurisveDup(array, start, array[end] - 1);
             }
+        } else if (array[end] > end) {
+            return findRecurisveDup(array, start, end - 1);
         } else {
-            return false;
+            return -1;
         }
     }
 
