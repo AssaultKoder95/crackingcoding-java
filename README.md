@@ -31,3 +31,4 @@ crackingcoding-java
 	MaxSquareWithZeroBorder
 	SubMatrixWithMaxSum
 	MinUnsortedSubArray
+	Count2s
